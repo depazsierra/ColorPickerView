@@ -24,9 +24,9 @@
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
--(BOOL)shouldAutorotate {
+/*-(BOOL)shouldAutorotate {
     return NO;
-}
+}*/
 
 -(void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)evt {
     UITouch *touch=[touches anyObject];

@@ -16,17 +16,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y1N-QJ-zBk" customClass="ColorPickerViewContainer">
-                                <rect key="frame" x="0.0" y="147" width="320" height="65"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y1N-QJ-zBk" customClass="ColorPickerViewContainer">
+                                <rect key="frame" x="0.0" y="239" width="320" height="65"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="p1I-gC-tay"/>
+                                </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="BU9-Ed-HUf" appends="YES" id="JrI-fF-Lzb"/>
                                 </connections>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap Colors To Change Me" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzV-t2-kV7">
-                                <rect key="frame" x="61" y="62" width="199" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap Colors To Change Me" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzV-t2-kV7">
+                                <rect key="frame" x="61" y="166" width="199" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -34,6 +37,13 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="y1N-QJ-zBk" secondAttribute="centerX" id="6Ar-pA-GpF"/>
+                            <constraint firstItem="y1N-QJ-zBk" firstAttribute="top" secondItem="bzV-t2-kV7" secondAttribute="bottom" constant="52" id="8cE-mT-Shc"/>
+                            <constraint firstAttribute="centerY" secondItem="y1N-QJ-zBk" secondAttribute="centerY" constant="12.5" id="Csm-Hw-b4m"/>
+                            <constraint firstAttribute="centerX" secondItem="bzV-t2-kV7" secondAttribute="centerX" constant="-0.5" id="Fhr-4o-Ov2"/>
+                            <constraint firstAttribute="centerY" secondItem="bzV-t2-kV7" secondAttribute="centerY" constant="107.5" id="LW5-cW-Zmi"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="colorPickerViewContainer" destination="y1N-QJ-zBk" id="YHa-M0-UIC"/>
