@@ -24,9 +24,6 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="p1I-gC-tay"/>
                                 </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="BU9-Ed-HUf" appends="YES" id="JrI-fF-Lzb"/>
-                                </connections>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap Colors To Change Me" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzV-t2-kV7">
                                 <rect key="frame" x="61" y="166" width="199" height="21"/>
@@ -51,7 +48,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="BU9-Ed-HUf"/>
             </objects>
             <point key="canvasLocation" x="43" y="78"/>
         </scene>

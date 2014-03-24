@@ -22,12 +22,16 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    [self.colorPickerViewContainer addObserver:self forKeyPath:@"color" options:NSKeyValueObservingOptionOld context:nil];
 }
 
 /*-(BOOL)shouldAutorotate {
     return NO;
 }*/
 
+
+/*
 -(void)touchesBegan:(NSSet*)touches withEvent:(UIEvent*)evt {
     UITouch *touch=[touches anyObject];
     CGPoint pt=[touch locationInView:self.colorPickerViewContainer];
@@ -58,7 +62,13 @@
 
 -(void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
     self.colorPickerViewContainer.startMovingSlider = NO;
+}*/
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    [self.labelView setTextColor:[self.colorPickerViewContainer getColor]];
 }
+
 
 - (void)didReceiveMemoryWarning
 {

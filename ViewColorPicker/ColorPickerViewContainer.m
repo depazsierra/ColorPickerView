@@ -18,6 +18,8 @@
 
 -(UIColor * ) colorOfPoint:(CGPoint) point;
 
+@property (nonatomic, strong) UIColor * color;
+
 @end
 
 @implementation ColorPickerViewContainer
@@ -34,11 +36,42 @@
 -(void)create {
     
     self.colorPickerView = [[ColorPickerView alloc]initWithFrame:CGRectMake(15.5, 2, 289, 55)];
+    
+   // UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc]
+     //                                        initWithTarget:self action:@selector(respondToTapGesture:)];
+    
+    
     [self addSubview:self.colorPickerView];
+    
+    
     
     self.colorSliderView = [[ColorSliderView alloc]initWithFrame:CGRectMake(30, 0, 20, 55)];
     [self addSubview:self.colorSliderView];
+    UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc]
+                                             initWithTarget:self action:@selector(respondToPanning:)];
+    
+    [self.colorSliderView addGestureRecognizer:panRecognizer];
 }
+
+- (IBAction)respondToPanning:(UITapGestureRecognizer *)recognizer {
+    
+    if (recognizer.state == UIGestureRecognizerStateBegan || recognizer.state == UIGestureRecognizerStateChanged) {
+        
+        self.startMovingSlider = YES;
+        CGPoint pt=[recognizer locationInView:self];
+        
+        [self moveSlider:pt];
+  //      NSLog(@"The user touch the point x %f, y %f ", pt.x, pt.y);
+        
+        self.color = [self colorOfPoint:pt];
+        NSLog(@"The color is %@", self.color);
+        
+    } else {
+        self.startMovingSlider = NO;
+    }
+
+}
+
 
 - (id)initWithFrame:(CGRect)frame
 {
