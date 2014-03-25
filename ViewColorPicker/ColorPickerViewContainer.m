@@ -45,7 +45,8 @@
     
     
     
-    self.colorSliderView = [[ColorSliderView alloc]initWithFrame:CGRectMake(30, 0, 20, 55)];
+    self.colorSliderView = [[ColorSliderView alloc]initWithFrame:CGRectMake(280, 0, 20, 55)];
+    self.color = [self getColor];
     [self addSubview:self.colorSliderView];
     UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc]
                                              initWithTarget:self action:@selector(respondToPanning:)];
@@ -63,7 +64,7 @@
         [self moveSlider:pt];
   //      NSLog(@"The user touch the point x %f, y %f ", pt.x, pt.y);
         
-        self.color = [self colorOfPoint:pt];
+        self.color = [self getColor];
         NSLog(@"The color is %@", self.color);
         
     } else {
@@ -149,12 +150,6 @@
     
 }
 
-
--(BOOL)isPointInsideSlider:(CGPoint)point {
-    CGRect frame = self.colorSliderView.frame;
-    
-    return CGRectContainsPoint(frame, point);
-}
 
 /*
 // Only override drawRect: if you perform custom drawing.

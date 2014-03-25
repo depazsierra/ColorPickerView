@@ -24,6 +24,9 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     [self.colorPickerViewContainer addObserver:self forKeyPath:@"color" options:NSKeyValueObservingOptionOld context:nil];
+    
+    [self.labelView setTextColor:[self.colorPickerViewContainer getColor]];
+
 }
 
 /*-(BOOL)shouldAutorotate {
