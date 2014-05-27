@@ -18,15 +18,24 @@
 
 @implementation ViewController
 
+static void *kvoContext = &kvoContext;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    [self.colorPickerViewContainer addObserver:self forKeyPath:@"color" options:NSKeyValueObservingOptionOld context:nil];
+    //[self.colorPickerViewContainer addObserver:self forKeyPath:@"color" options:NSKeyValueObservingOptionOld context:nil];
+     [self.colorPickerViewContainer addObserver:self forKeyPath:NSStringFromSelector(@selector(color)) options:NSKeyValueObservingOptionOld context:kvoContext];
+    
     
     [self.labelView setTextColor:[self.colorPickerViewContainer getColor]];
 
+}
+
+- (void)dealloc
+{
+    [self.colorPickerViewContainer removeObserver:self forKeyPath:NSStringFromSelector(@selector(color)) context:kvoContext];
 }
 
 /*-(BOOL)shouldAutorotate {
@@ -69,7 +78,13 @@
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    [self.labelView setTextColor:[self.colorPickerViewContainer getColor]];
+    
+    if (context != kvoContext) {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    } else {
+        [self.labelView setTextColor:[self.colorPickerViewContainer getColor]];
+    }
+    
 }
 
 
