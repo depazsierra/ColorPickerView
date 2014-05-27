@@ -90,22 +90,6 @@
     roundedRectanglePath.lineWidth = 1;
     [roundedRectanglePath stroke];
 
-    
-    /*UIBezierPath* roundedRectanglePath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(rect.origin.x + 25, rect.origin.y+2, 270, 49 ) cornerRadius: 0];
-    CGContextSaveGState(context);
-    CGContextSetShadowWithColor(context, shadowOffset, shadowBlurRadius, shadow.CGColor);
-    CGContextBeginTransparencyLayer(context, NULL);
-    [roundedRectanglePath addClip];
-    CGContextDrawLinearGradient(context, gradienteMulticolor, CGPointMake(rect.origin.x+25, rect.origin.y+2), CGPointMake(rect.origin.x+25+ 270
-                                                                                                                     , rect.origin.y+2), 0);
-    CGContextEndTransparencyLayer(context);
-    CGContextRestoreGState(context);
-    
-    [[UIColor blackColor] setStroke];
-    roundedRectanglePath.lineWidth = 1;
-    [roundedRectanglePath stroke];*/
-    
-    
     //// Cleanup
     CGGradientRelease(gradienteMulticolor);
     CGColorSpaceRelease(colorSpace);
